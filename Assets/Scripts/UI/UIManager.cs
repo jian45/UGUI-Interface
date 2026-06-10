@@ -69,6 +69,7 @@ public class UIManager
         {
             if (isFade)
             {
+                // lambda表达式 代表一个匿名函数 这里的匿名函数就是淡出成功后的回调函数
                 panelDic[PanelName].HideMe(() => {
                 //面板 淡出成功后 希望删除面板
                     GameObject.Destroy(panelDic[PanelName].gameObject);
