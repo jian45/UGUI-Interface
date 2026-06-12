@@ -40,7 +40,7 @@ public class UIManager
         return panelDic[panelName]as T;
         }
 
-
+       
         //显示面板 就是 动态的创建面板预制体 设置父对象
         //根据得到的 类名 就是我们的预设体面板明 直接 动态创建它 即可
         GameObject PanelObj = GameObject.Instantiate(Resources.Load<GameObject>("UI/"+ panelName));

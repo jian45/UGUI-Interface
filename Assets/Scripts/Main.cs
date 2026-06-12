@@ -14,6 +14,7 @@ public class Main : MonoBehaviour
        // tipPanel .ChangeInfo("这是一个测试面板，显示成功了哦！");
     
         LoginPanel loginPanel =UIManager.Instance.ShowPanel<LoginPanel>();
+       
     }
 
     // Update is called once per frame

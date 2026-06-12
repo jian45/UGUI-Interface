@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class LoginPanel : BasePanel
 {
@@ -21,9 +22,10 @@ public class LoginPanel : BasePanel
         //点击注册做什么
         butReg.onClick.AddListener(() => {
             //当点击注册按钮时 显示注册面板
-            //当下没有注册面板 先用写下注释
-            // UIManager.Instance.ShowPanel
 
+            UIManager.Instance.ShowPanel<RegisterPanel>();
+
+           
             //隐藏自己
             UIManager.Instance.HidePanel<LoginPanel>();
         }
@@ -31,7 +33,46 @@ public class LoginPanel : BasePanel
         //点击登录做什么
         butSure.onClick.AddListener(() => 
         {
-        //点击登录后要验证用户名和密码是否正确 这里先用写下注释
+            //账号密码必须小于6位出提示
+            if (inputUser.text.Length <= 6 || inputPass.text.Length <= 6)
+            {
+                //出提示面板
+                TipPanel panel = UIManager.Instance.ShowPanel<TipPanel>();
+                //改变提示面板上的内容
+                panel.ChangeInfo("账号密码必须大于6位");
+                return;
+            }
+
+            //点击登录后要验证用户名和密码是否正确 
+            if (LoginMgr.Instance.CheckInfo(inputUser.text, inputPass.text))
+            {
+                
+                //记录数据LoginData类以支持面板的记住密码功能与自动登录功能
+                LoginMgr.Instance.LoginData.userName = inputUser.text;
+                LoginMgr.Instance.LoginData.passWord = inputPass.text;
+                //记住记住密码功能与自动登录功能是否使用
+                LoginMgr.Instance.LoginData.RememberPw = RememberPw.isOn;
+                LoginMgr.Instance.LoginData.AutoLogin = AutoLogin.isOn;
+
+                //使用json管理器保存此次数据
+                LoginMgr.Instance.SaveLoginData();
+
+                //根据服务器 来进行判断 显示哪个面板
+                //该账号上次从未进入服务器则进选服面板进过则进服务器面板
+
+
+                //隐藏自身
+                UIManager.Instance.HidePanel<LoginPanel>();
+            }
+            else 
+            {
+                //失败
+
+                //出提示面板
+                TipPanel panel = UIManager.Instance.ShowPanel<TipPanel>();
+                //改变提示面板上的内容
+                panel.ChangeInfo("账号或密码错误");
+            }
         });
         //记住密码的Toggle做什么
         RememberPw.onValueChanged.AddListener((isOn) =>
@@ -74,7 +115,17 @@ public class LoginPanel : BasePanel
         //如果自动登入 做什么
         if (AutoLogin.isOn) 
         {
-        //自动验证账号密码相关
+            //自动验证账号密码相关
+
+            //隐藏自身
+           // UIManager.Instance.HidePanel<LoginPanel>();
         }
+    }
+
+    //提供外部改变面板内容的方法
+    public void SetInfo(string name,string password) 
+    {
+        inputUser.text = name;
+        inputPass .text = password;
     }
 }
