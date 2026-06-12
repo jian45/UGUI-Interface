@@ -16,4 +16,5 @@ public class LoginData
     public bool AutoLogin;
 
     //服务器相关
+    public int frontServerID=-1;
 }
