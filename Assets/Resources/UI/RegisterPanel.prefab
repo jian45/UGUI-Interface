@@ -610,8 +610,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7678395246595780097}
   - component: {fileID: 5194003869580064899}
+  - component: {fileID: 4130157282412136786}
   m_Layer: 5
-  m_Name: RagisterPanel
+  m_Name: RegisterPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,6 +650,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5169639665570111657}
   m_CullTransparentMesh: 1
+--- !u!114 &4130157282412136786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5169639665570111657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec40a2dda6168fe418a2b2c1160b252a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RegisterPanel
+  btnSur: {fileID: 8878243229765457271}
+  btnCancel: {fileID: 3731882087963937852}
+  inputUN: {fileID: 7070964641872822825}
+  inputPW: {fileID: 5690577400675787042}
 --- !u!1 &5216554857308392017
 GameObject:
   m_ObjectHideFlags: 0
