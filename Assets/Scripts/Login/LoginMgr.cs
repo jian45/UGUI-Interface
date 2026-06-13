@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -20,6 +22,10 @@ public class LoginMgr
     //方便外部访问注册数据
     public RegisterData RegisterData => registerData;
 
+    //所有服务器数据
+    private List<ServerInfo> serverData;
+
+    public List<ServerInfo> ServerData => serverData;
     private LoginMgr() 
     {
         //直接通过json管理器 来读取对应数据
@@ -27,6 +33,9 @@ public class LoginMgr
 
         //读取注册数据
         registerData = JsonMgr.Instance.LoadData<RegisterData>("RegisterData");
+
+        //读取服务器数据
+        serverData = JsonMgr.Instance.LoadData<List<ServerInfo>>("ServerInfo");
     }
     #region 登录数据
     /// <summary>
