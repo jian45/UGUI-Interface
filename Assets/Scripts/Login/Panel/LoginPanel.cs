@@ -61,7 +61,8 @@ public class LoginPanel : BasePanel
                 //该账号上次从未进入服务器则进选服面板进过则进服务器面板
                 if (LoginMgr.Instance.LoginData.frontServerID == -1) 
                 {
-                //如果从来没有选择过服务器 id为-1时 就应该直接打开 选服面板
+                    //如果从来没有选择过服务器 id为-1时 就应该直接打开 选服面板
+                    UIManager.Instance.ShowPanel<ChooseServerPanel>();
                 }
                 else
                 {

@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 5864989176345905814}
   - component: {fileID: 9207486263596412747}
   - component: {fileID: 6586384858527114401}
+  - component: {fileID: 7973951625140422418}
   m_Layer: 5
   m_Name: ServerRightitem
   m_TagString: Untagged
@@ -202,6 +203,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7973951625140422418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859447348670608771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f592328aafc399046a482b50e1c2c63e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ServerRightItem
+  btmSelf: {fileID: 6586384858527114401}
+  imgNew: {fileID: 1504547191072588143}
+  imgState: {fileID: 1780670789077317134}
+  txtName: {fileID: 329689914545672119}
 --- !u!1 &3890764623188065676
 GameObject:
   m_ObjectHideFlags: 0
