@@ -12,8 +12,9 @@ public class Main : MonoBehaviour
         //TipPanel tipPanel = UIManager.Instance.ShowPanel<TipPanel>();
    
        // tipPanel .ChangeInfo("这是一个测试面板，显示成功了哦！");
-    
-        LoginPanel loginPanel =UIManager.Instance.ShowPanel<LoginPanel>();
+    //一进游戏 就应该显示登录面板
+        UIManager.Instance.ShowPanel<LoginBKPanel>();
+        UIManager.Instance.ShowPanel<LoginPanel>();
        
     }
 

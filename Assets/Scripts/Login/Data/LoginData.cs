@@ -11,10 +11,10 @@ public class LoginData
     public string passWord;//密码
 
     //是否记住密码
-    public bool RememberPw;
+    public bool rememberPw;
     //是否自动登录
-    public bool AutoLogin;
+    public bool autoLogin;
 
     //服务器相关
-    public int frontServerID=0;//根据需求暂时改变为0
+    public int frontServerID=-1;//根据需求暂时改变为0
 }

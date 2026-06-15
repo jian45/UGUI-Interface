@@ -51,15 +51,15 @@ public class LoginPanel : BasePanel
                 LoginMgr.Instance.LoginData.userName = inputUser.text;
                 LoginMgr.Instance.LoginData.passWord = inputPass.text;
                 //记住记住密码功能与自动登录功能是否使用
-                LoginMgr.Instance.LoginData.RememberPw = RememberPw.isOn;
-                LoginMgr.Instance.LoginData.AutoLogin = AutoLogin.isOn;
+                LoginMgr.Instance.LoginData.rememberPw = RememberPw.isOn;
+                LoginMgr.Instance.LoginData.autoLogin = AutoLogin.isOn;
 
                 //使用json管理器保存此次数据
                 LoginMgr.Instance.SaveLoginData();
 
                 //根据服务器 来进行判断 显示哪个面板
                 //该账号上次从未进入服务器则进选服面板进过则进服务器面板
-                if (LoginMgr.Instance.LoginData.frontServerID == -1|| LoginMgr.Instance.LoginData.frontServerID == 0) //暂时修改看看符不符合选服面板逻辑
+                if (LoginMgr.Instance.LoginData.frontServerID <= 0) 
                 {
                     //如果从来没有选择过服务器 id为-1时 就应该直接打开 选服面板
                     UIManager.Instance.ShowPanel<ChooseServerPanel>();
@@ -111,8 +111,8 @@ public class LoginPanel : BasePanel
         LoginData loginData = LoginMgr.Instance.LoginData;
         //初始化面板
         //更新两个多选框的状态
-        RememberPw.isOn=loginData.RememberPw;
-        AutoLogin.isOn = loginData.AutoLogin;
+        RememberPw.isOn=loginData.rememberPw;
+        AutoLogin.isOn = loginData.autoLogin;
         //更新输入框的内容
         inputUser.text = loginData.userName;
         //根据上次是否记住密码来决定是否显示密码
@@ -125,8 +125,29 @@ public class LoginPanel : BasePanel
         {
             //自动验证账号密码相关
 
-            //隐藏自身
-           // UIManager.Instance.HidePanel<LoginPanel>();
+            if(LoginMgr.Instance.CheckInfo(inputUser.text, inputPass.text)) 
+           {
+                //根据服务器 来进行判断 显示哪个面板
+                //该账号上次从未进入服务器则进选服面板进过则进服务器面板
+                if (LoginMgr.Instance.LoginData.frontServerID <= 0)
+                {
+                    //如果从来没有选择过服务器 id为-1时 就应该直接打开 选服面板
+                    UIManager.Instance.ShowPanel<ChooseServerPanel>();
+                }
+                else
+                {
+                    //打开我们的服务器面板
+                    UIManager.Instance.ShowPanel<ServerPanel>();
+                }
+                //隐藏自身
+                UIManager.Instance.HidePanel<LoginPanel>(false);
+            }
+            else
+            {
+                TipPanel panel =UIManager.Instance.ShowPanel<TipPanel>();
+                panel.ChangeInfo("账号密码错误");
+            }
+      
         }
     }
 

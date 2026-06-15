@@ -31,12 +31,12 @@ public class RegisterPanel : BasePanel
             //注册账号密码
             if (LoginMgr.Instance.RegisterUser(inputUN.text, inputPW.text))
             {
+                //清理登录数据 用于 新注册账号的数据重置 不然会残留上一个账号的相关数据
+                LoginMgr.Instance.ClearLoginData();
                 //注册成功
-
-                
                 //显示登录界面
                 LoginPanel panel=UIManager.Instance.ShowPanel<LoginPanel>();
-                //更新登录面板内容
+                //更新登录面板上的用户名和密码
                 panel.SetInfo(inputUN.text,inputPW.text);
 
                 //隐藏自己
