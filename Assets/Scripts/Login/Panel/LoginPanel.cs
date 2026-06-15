@@ -59,7 +59,7 @@ public class LoginPanel : BasePanel
 
                 //根据服务器 来进行判断 显示哪个面板
                 //该账号上次从未进入服务器则进选服面板进过则进服务器面板
-                if (LoginMgr.Instance.LoginData.frontServerID == -1) 
+                if (LoginMgr.Instance.LoginData.frontServerID == -1|| LoginMgr.Instance.LoginData.frontServerID == 0) //暂时修改看看符不符合选服面板逻辑
                 {
                     //如果从来没有选择过服务器 id为-1时 就应该直接打开 选服面板
                     UIManager.Instance.ShowPanel<ChooseServerPanel>();

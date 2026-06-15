@@ -17,6 +17,9 @@ public class ServerLeftItem : MonoBehaviour
         btnSelf.onClick.AddListener(() =>
         {
             //通知选服面板 改变右侧的区间内容
+            ChooseServerPanel Panel=UIManager.Instance.GetPanel<ChooseServerPanel>();
+            Panel.UpdataPanle(beginIndex, endIndex);
+
         });
     }
 
