@@ -34,7 +34,7 @@ public class ServerPanel : BasePanel
         btnChange.onClick.AddListener(() =>
         {
             //显示服务器列表面板
-
+            UIManager.Instance.ShowPanel<ChooseServerPanel>();
             //隐藏自己
             UIManager.Instance.HidePanel<ServerPanel>();
         });

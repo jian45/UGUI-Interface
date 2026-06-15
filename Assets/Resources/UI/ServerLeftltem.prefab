@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6313228031561767371}
   - component: {fileID: 4184606619319473706}
   - component: {fileID: 2508685819250632870}
+  - component: {fileID: -4803171303432085096}
   m_Layer: 5
   m_Name: ServerLeftltem
   m_TagString: Untagged
@@ -121,6 +122,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-4803171303432085096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784740135135639260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6a818166cb68c46995b59b4c262f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ServerLeftItem
 --- !u!1 &3057666316275198065
 GameObject:
   m_ObjectHideFlags: 0
