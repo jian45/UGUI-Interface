@@ -22,7 +22,7 @@ public class ServerRightItem : MonoBehaviour
             LoginMgr.Instance.LoginData.frontServerID=nowServerInfo.id;
 
             //隐藏 选服面板
-
+            UIManager.Instance.HidePanel<ChooseServerPanel>();
             //显示 服务器面板
             UIManager.Instance.ShowPanel<ServerPanel>();
         });

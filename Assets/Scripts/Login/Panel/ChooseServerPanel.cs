@@ -38,7 +38,7 @@ public class ChooseServerPanel : BasePanel
             item.transform.SetParent(svLefe.content, false);
 
             //初始化按钮
-            //这一步需要丁意制作的按钮脚本所以会有所空缺
+            
              ServerLeftItem  serverLeft =item.GetComponent<ServerLeftItem>();
             //开始索引与结束索引要从i算出
             int beginIndex = i * 5 + 1;
@@ -133,7 +133,12 @@ public class ChooseServerPanel : BasePanel
 
 
             //根据信息 更新按钮数据
-          //  ServerRightItem rightItem = serverItem.GetComponent<ServerRightItem>();
+            ServerRightItem rightItem = serverItem.GetComponent<ServerRightItem>();
+            rightItem.InitInfo (nowInfo);
+
+            //创建成功后 把它加入到列表中
+            itemList .Add (serverItem);
+
         }
 
     }
