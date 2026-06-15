@@ -14,6 +14,10 @@ public class ServerPanel : BasePanel
     {
         btnBack.onClick.AddListener(() =>
         {
+            //避免 自动登录时 返回登录界面 出现问题
+            if(LoginMgr.Instance.LoginData.autoLogin)
+                LoginMgr.Instance.LoginData.autoLogin=false;
+
             //显示登录面板
             UIManager.Instance.ShowPanel<LoginPanel>();
             //隐藏自己
@@ -24,9 +28,13 @@ public class ServerPanel : BasePanel
         {
             //进入游戏
             //由于过场景 Canvas对象不会被移除 所以下面的面板应该也要隐藏了
-
             //隐藏自己
             UIManager.Instance.HidePanel<ServerPanel>();
+            //隐藏我们的 登录图面板
+            UIManager.Instance.HidePanel<LoginBKPanel>();
+            //储存数据的目的是为了 储存到它当前选择是的服务器ID
+            LoginMgr.Instance.SaveLoginData();
+
             //切换场景
             SceneManager.LoadScene("GameScene");
         });

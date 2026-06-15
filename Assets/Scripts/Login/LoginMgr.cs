@@ -45,6 +45,13 @@ public class LoginMgr
     {
         JsonMgr.Instance.SaveData(loginData , "LoginData");
     }
+//主要用于 注册成功后 清理登录数据
+    public void ClearLoginData()
+    {
+        loginData.frontServerID = 0;
+        loginData.autoLogin = false;
+        loginData.rememberPw = false;
+    }
     #endregion
     #region 注册数据
     //提供外部存储注册数据的方法
